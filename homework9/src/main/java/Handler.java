@@ -1,4 +1,3 @@
-import sun.plugin.cache.FileVersion;
 
 import java.io.*;
 import java.net.Socket;
@@ -35,6 +34,7 @@ public class Handler extends Thread {
                 }
                 output.flush();
             } else {
+                // раз и в том и в другом случае возвращаете такой код и Content-type, то вынесите за пределы if
                 output.println("HTTP/1.1 200 OK");
                 output.println("Content-Type:text/html; charset=UTF-8");
                 output.println();
@@ -51,6 +51,8 @@ public class Handler extends Thread {
     private String getReguestURL(InputStream inputStream) {
         Scanner scanner = new Scanner(inputStream).useDelimiter("\r\n");
         String url = scanner.next();
+        // добавьте ещё проверку на то, что запрос выглядит как
+        // GET <урл> HTTP/1.1
         return url.split(" ")[1];
     }
 }
