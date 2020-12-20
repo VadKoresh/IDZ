@@ -7,8 +7,7 @@ public class Main {
         String pathOut = args[1];
         int cycle = Integer.parseInt(args[2]);
 
-        Character[][] life = ReadFile.readFile("resources/" + pathIn);
-
+        Character[][] life = ReadFile.readFile("src/main/resources/" + pathIn);
         //===========================================================================================
 
        long start = System.currentTimeMillis();
@@ -23,7 +22,7 @@ public class Main {
         long finishTo = System.currentTimeMillis();
         System.out.println("Многопоточка равна = " + (finishTo - startTo));
 
-        WriteFile.writeFile("resources/" + pathOut, startMulty.getLifeAfter());
+        WriteFile.writeFile("src/main/resources/" + pathOut, life);
 
     }
 }

@@ -31,8 +31,4 @@ public class MultiLife {
 
         }
     }
-
-    public Character[][] getLifeAfter() {
-        return lifeAfter;
-    }
 }

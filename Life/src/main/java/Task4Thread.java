@@ -11,17 +11,14 @@ public class Task4Thread implements Runnable{
 
     @Override
     public void run() {
-        newLife(Integer.parseInt(Thread.currentThread().getName()));
-    }
+        int numberThread = Integer.parseInt(Thread.currentThread().getName());
 
-    private void newLife(int numberThread){
         for (int i = numberThread; i < life.length; i += countThreads) {
             for (int j = 0; j < life[i].length; j++) {
                 lifeAfter[i][j] = Processing.rezult(life, i, j);
             }
         }
     }
-
 }
 
 

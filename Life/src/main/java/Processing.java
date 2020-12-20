@@ -23,15 +23,15 @@ public class Processing {
                 } else if (bufferL > life.length - 1) {
                     bufferL = 0;
                 }
-                if (life[bufferK][bufferL].equals("X")) {
+                if (life[bufferK][bufferL].equals('X')) {
                     count++;
                 }
             }
         }
 
-        if ((life[i][j].equals("-") && count != 3) || (life[i][j].equals("X") && (count < 2 || count > 3))) {
+        if ((life[i][j].equals('-') && count != 3) || (life[i][j].equals('X') && (count < 2 || count > 3))) {
             rezult = '-';
-        } else if ((life[i][j].equals("X") && (count == 2 || count == 3)) || (life[i][j].equals("-") && count == 3)) {
+        } else if ((life[i][j].equals('X') && (count == 2 || count == 3)) || (life[i][j].equals('-') && count == 3)) {
             rezult = 'X';
         }
         return rezult;
