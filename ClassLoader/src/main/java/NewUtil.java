@@ -3,6 +3,8 @@ import javax.tools.ToolProvider;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class NewUtil {
     static String fromConsole() {
@@ -21,7 +23,8 @@ public class NewUtil {
 
     static String readFromClass() {
         StringBuilder str = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("homework8.2\\src\\main\\java\\SomeClass.java"))) {
+        Path path = Paths.get("src").resolve("main").resolve("java").resolve("SomeClass.java");
+        try (BufferedReader br = new BufferedReader(new FileReader(String.valueOf(path)))) {
             String readLine = br.readLine();
             while (br.ready()) {
                 str.append(readLine);

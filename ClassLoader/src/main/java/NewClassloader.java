@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class NewClassloader extends ClassLoader {
@@ -16,7 +17,8 @@ public class NewClassloader extends ClassLoader {
     public Class<?> findClass(String name) throws ClassNotFoundException {
         if ("SomeClass".equals(name)) {
             try {
-                byte[] bytes = Files.readAllBytes(Paths.get("ClassLoader\\src\\main\\java\\SomeClass.class"));
+                Path path = Paths.get("src").resolve("main").resolve("java").resolve("SomeClass.java");
+                byte[] bytes = Files.readAllBytes(path);
                 return defineClass(name, bytes, 0, bytes.length);
             } catch (IOException e) {
                 e.printStackTrace();
