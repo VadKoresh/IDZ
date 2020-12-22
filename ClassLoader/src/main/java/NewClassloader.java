@@ -17,7 +17,7 @@ public class NewClassloader extends ClassLoader {
     public Class<?> findClass(String name) throws ClassNotFoundException {
         if ("SomeClass".equals(name)) {
             try {
-                Path path = Paths.get("src").resolve("main").resolve("java").resolve("SomeClass.java");
+                Path path = Paths.get("src").resolve("main").resolve("java").resolve("SomeClass.class");
                 byte[] bytes = Files.readAllBytes(path);
                 return defineClass(name, bytes, 0, bytes.length);
             } catch (IOException e) {

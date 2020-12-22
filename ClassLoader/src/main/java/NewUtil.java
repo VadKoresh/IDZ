@@ -39,8 +39,8 @@ public class NewUtil {
     static String getNewCode() {
         String toSomeClassCode = readFromClass();
         String someCode = fromConsole();
-        return toSomeClassCode.substring(0, (toSomeClassCode.indexOf("doWork()") + 10)) +
-                someCode + "}\n}\n";
+        return toSomeClassCode.substring(0, (toSomeClassCode.indexOf("doWork()") + 10)) + "\n" +
+                someCode + "\n" + "}\n}\n";
     }
 
     static void createAndCompile(File file, String code) throws IOException {
